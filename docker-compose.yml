@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  wiz-sachi-distributor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wiz-sachi-distributor
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./keypairs:/app/keypairs:ro
+      - ./logs:/app/logs
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "pm2", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - distributor-network
+
+networks:
+  distributor-network:
+    driver: bridge

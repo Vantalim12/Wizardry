@@ -1,0 +1,39 @@
+{
+  "name": "wiz-sachi-distributor",
+  "version": "1.0.0",
+  "description": "Automated WIZ/SACHI token distributor",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/index.js",
+    "collect-fees": "node dist/src/collect-fees.js",
+    "swap": "node dist/src/swap-sol-to-sachi.js",
+    "distribute": "node dist/src/distribute-tokens.js",
+    "create-pool": "node dist/src/create-pool.js",
+    "dev:collect-fees": "ts-node src/collect-fees.ts",
+    "dev:swap": "ts-node src/swap-sol-to-sachi.ts",
+    "dev:distribute": "ts-node src/distribute-tokens.ts",
+    "dev:create-pool": "ts-node src/create-pool.ts"
+  },
+  "keywords": [
+    "solana",
+    "token",
+    "distributor",
+    "meteora",
+    "jupiter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@solana/web3.js": "^1.87.6",
+    "@solana/spl-token": "^0.3.9",
+    "@project-serum/anchor": "^0.29.0",
+    "dotenv": "^16.3.1",
+    "pm2": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2",
+    "ts-node": "^10.9.2"
+  }
+}

@@ -1,0 +1,42 @@
+[package]
+name = "wiz-sachi-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+solana-sdk = "1.18"
+solana-client = "1.18"
+solana-program = "1.18"
+spl-token = { version = "4.0", features = ["no-entrypoint"] }
+anchor-lang = "0.29"
+anchor-spl = "0.29"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+bs58 = "0.5"
+env_logger = "0.11"
+log = "0.4"
+
+[lib]
+name = "wiz_sachi_core"
+path = "src/lib.rs"
+
+[[bin]]
+name = "collect_fees"
+path = "src/bin/collect_fees.rs"
+
+[[bin]]
+name = "swap_sol_to_sachi"
+path = "src/bin/swap_sol_to_sachi.rs"
+
+[[bin]]
+name = "distribute_tokens"
+path = "src/bin/distribute_tokens.rs"
+
+[[bin]]
+name = "create_pool"
+path = "src/bin/create_pool.rs"
+
